@@ -2,9 +2,8 @@ APP_NAME := simple-ads-server
 BIN_DIR := bin
 BIN_PATH := $(BIN_DIR)/$(APP_NAME)
 MAIN_PKG := ./cmd/server
-GEOIP_DB := GeoLite2-Country.mmdb
 
-.PHONY: all build run clean test tidy deps docker-up docker-down check-geoip
+.PHONY: all build run clean test tidy deps docker-up docker-down
 
 all: build
 
@@ -32,9 +31,3 @@ docker-up:
 
 docker-down:
 	docker-compose down
-
-check-geoip:
-	@if [ ! -f "$(GEOIP_DB)" ]; then \
-		echo "Отсутствует $(GEOIP_DB). Скачайте GeoLite2-Country.mmdb и положите в корень проекта."; \
-		exit 1; \
-	fi

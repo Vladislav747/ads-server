@@ -28,6 +28,7 @@ func main() {
 	}
 
 	statsManager := stats.NewManager(cw, 10*time.Second)
+	// Начинаем запись статистики в ClickHouse
 	statsManager.Start()
 
 	go func() {
